@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Practice</title>
+</head>
+<body>
+
+    <!-- Heading -->
+    <h1 id="main-heading">Original Heading</h1>
+
+    <!-- Paragraphs -->
+    <p>This is paragraph one.</p>
+    <p>This is paragraph two.</p>
+    <p>This is paragraph three.</p>
+
+    <!-- Container div -->
+    <div class="container">
+        <p>Inside container paragraph.</p>
+    </div>
+
+    <script>
+        // 1. Select <h1> by id and change its text
+        const heading = document.getElementById("main-heading");
+        heading.textContent = "Welcome to the DOM World!";
+
+        // 2. Select all <p> using getElementsByTagName and make them blue
+        const paragraphs = document.getElementsByTagName("p");
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.color = "blue";
+        }
+
+        // 3. Use querySelector to select first .container div and change background
+        const containerDiv = document.querySelector(".container");
+        containerDiv.style.backgroundColor = "yellow";
+    </script>
+
+</body>
+</html>
