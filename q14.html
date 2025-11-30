@@ -1,0 +1,94 @@
+<!-- Problem Statement:
+You are given an HTML file with a JavaScript script that contains several bugs. Your task is to debug the script and ensure it works as intended. The script is supposed to:
+
+Change the text content of a <p> element with the id message when a button is clicked.
+Change the background color of a <div> with the id box when another button is clicked.
+Provided Bugged Code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging Task</title>
+</head>
+<body>
+  <p id="message">Original Message</p>
+  <button id="textButton">Change Text</button>
+  <br><br>
+  <div id="box" style="width: 100px; height: 100px; background-color: lightgray;"></div>
+  <button id="colorButton">Change Background</button>
+
+  <script>
+    // JavaScript code with bugs
+    const para = document.querySelector('#massage'); // Incorrect id
+    const textButton = document.getElementByName('textButton'); // Incorrect method
+    textButton.addClickEventListener(() => { // Incorrect method name
+      para.contentText = 'New Message'; // Incorrect property
+    });
+
+    const box = document.getElementById('box');
+    const colorButton = document.getElementById('colorButton');
+    colorButton.addEventListener('click', () => {
+      box.styl.backgroundColor = 'blue'; // Typo in 'style'
+    });
+  </script>
+</body>
+</html>
+
+Your Task:
+Identify and fix all the bugs in the provided script.
+Ensure that:
+Clicking the "Change Text" button updates the paragraph text to "New Message".
+Clicking the "Change Background" button changes the <div>'s background color to blue.
+Submission Guidelines:
+Submit the corrected HTML and JavaScript code in your Masai GitHub repository.
+Add comments in the script highlighting the fixed bugs (e.g., // Fixed typo in method name). -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging Task</title>
+</head>
+<body>
+  <p id="message">Original Message</p>
+  <button id="textButton">Change Text</button>
+  <br><br>
+  <div id="box" style="width: 100px; height: 100px; background-color: lightgray;"></div>
+  <button id="colorButton">Change Background</button>
+
+  <script>
+    // JavaScript code FIXED ✔
+
+    // ❌ BUG: Wrong id (#massage)
+    // ✔ FIX: Correct id is #message
+    const para = document.querySelector('#message');
+
+    // ❌ BUG: document.getElementByName (wrong method)
+    // ✔ FIX: Correct method is getElementById()
+    const textButton = document.getElementById('textButton');
+
+    // ❌ BUG: addClickEventListener (method does not exist)
+    // ✔ FIX: Correct method is addEventListener()
+    textButton.addEventListener('click', () => {
+
+      // ❌ BUG: para.contentText (wrong property)
+      // ✔ FIX: Correct property is textContent
+      para.textContent = 'New Message';
+    });
+
+    const box = document.getElementById('box');
+    const colorButton = document.getElementById('colorButton');
+
+    // Correct listener
+    colorButton.addEventListener('click', () => {
+
+      // ❌ BUG: box.styl (typo)
+      // ✔ FIX: Correct property is box.style
+      box.style.backgroundColor = 'blue';
+    });
+  </script>
+</body>
+</html>
